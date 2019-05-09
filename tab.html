@@ -1,0 +1,48 @@
+<?php
+
+	$conexion=mysqli_connect('hacktale.scm.azurewebsites.net','root','','basesita');
+
+ ?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mostrar datos</title>
+</head>
+<body>
+
+    <br>
+
+    <table border="1">
+        <tr>
+            <td>Estado</td>
+            <td>2013</td>
+            <td>2014</td>
+            <td>2015</td>
+            <td>2016</td>
+            <td>2017</td>
+        </tr>
+
+        <?php
+        $sql="SELECT * from ied";
+        $result=mysqli_query($conexion,$sql);
+
+        while($mostrar=mysqli_fetch_array($result)){
+        ?>
+
+        <tr>
+            <td><?php echo $mostrar['Estado'] ?></td>
+            <td><?php echo $mostrar['2013'] ?></td>
+            <td><?php echo $mostrar['2014'] ?></td>
+            <td><?php echo $mostrar['2015'] ?></td>
+            <td><?php echo $mostrar['2016'] ?></td>
+            <td><?php echo $mostrar['2017'] ?></td>
+        </tr>
+        <?php
+        }
+        ?>
+    </table>
+
+</body>
+</html>
